@@ -1,0 +1,31 @@
+Enhancing the SHBrowseForFolder API Function
+============================================
+Browse for a Folder using SHBrowseForFolder API function with a callback
+function BrowseCallbackProc.
+
+This Extends the functionality that was given in the
+MSDN Knowledge Base article Q179497 "HOWTO: Select a Directory
+Without the Common Dialog Control".
+
+After reading the MSDN knowledge base article Q179378 "HOWTO: Browse for
+Folders from the Current Directory", I was able to figure out how to add
+a callback function that sets the starting directory and displays the
+currently selected path in the "Browse For Folder" dialog.
+
+I used VB 6.0 (SP3) to compile this code.  Should work in VB 5.0.
+However, because it uses the AddressOf operator this code will not
+work with versions below 5.0.
+
+This code works in Window 95a so I assume it will work with later versions.
+
+Stephen Fonnesbeck
+steev@xmission.com
+http://www.xmission.com/~steev
+Feb 20, 2000
+============================================
+Usage:
+
+    Dim folder As String
+    folder = BrowseForFolder(Me, "Select A Directory", "C:\startdir\anywhere")
+    If Len(folder) = 0 Then Exit Sub  'User Selected Cancel
+
